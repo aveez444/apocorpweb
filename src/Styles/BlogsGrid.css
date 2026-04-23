@@ -1,0 +1,117 @@
+/* Blogs Grid Section */
+
+.blogs-grid-section {
+  width: 100%;
+  /* background: #000000; */
+  background: #ffffff;
+  padding: 56px 70px 72px;
+}
+
+.blogs-grid-shell {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 3-column grid */
+.blogs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px 28px;
+}
+
+/* Individual card */
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  cursor: pointer;
+}
+
+/* Image container */
+.blog-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.blog-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog-card:hover .blog-card-image img {
+  transform: scale(1.06);
+}
+
+/* Text body */
+.blog-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 2px;
+}
+
+.blog-card-title {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.1px;
+  background: linear-gradient(90deg,
+      #4fa3ff 0%,
+      #a78bfa 55%,
+      #f472b6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: opacity 0.25s ease;
+}
+
+.blog-card:hover .blog-card-title {
+  opacity: 0.85;
+}
+
+.blog-card-desc {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .blogs-grid-section {
+    padding: 48px 40px 60px;
+  }
+
+  .blogs-grid {
+    gap: 28px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .blogs-grid-section {
+    padding: 40px 20px 56px;
+  }
+
+  .blogs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .blogs-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

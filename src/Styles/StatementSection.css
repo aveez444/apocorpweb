@@ -1,0 +1,110 @@
+/* Statement Section */
+
+.statement-section {
+  width: 100%;
+  /* background: #0a1e33; */
+  /* background: var(--primary-blue); */
+  background: #ffffff;
+  padding: 80px 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.statement-shell {
+  max-width: 860px;
+  width: 100%;
+}
+
+.statement-text {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.75;
+  letter-spacing: -0.3px;
+  margin: 0;
+}
+
+.statement-accent {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.statement-white {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.statement-highlight {
+  background: linear-gradient(90deg,
+      #4fa3ff 0%,
+      #a78bfa 55%,
+      #f472b6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-weight: 800;
+}
+
+@media (max-width: 1024px) {
+  .statement-section {
+    padding: 60px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .statement-section {
+    padding: 48px 20px;
+  }
+
+  .statement-text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+}
+
+/* GSAP Overlay Logic */
+.statement-text-wrapper {
+  position: relative;
+}
+
+.statement-text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  /* Create one continuous beautiful gradient spanning the entire text block */
+  background: linear-gradient(90deg,
+      #4fa3ff 0%,
+      #a78bfa 55%,
+      #f472b6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Reset colors on the base layout to behave entirely as a flat grey skeleton */
+.statement-text-base .statement-accent,
+.statement-text-base .statement-white,
+.statement-text-base .statement-highlight {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: unset;
+  color: rgba(0, 0, 0, 0.15);
+  /* Light grey for white backgrounds */
+}
+
+/* Strip original nested colors from the overlay so the parent's giant gradient shines perfectly through! */
+.statement-text-overlay .statement-accent,
+.statement-text-overlay .statement-white,
+.statement-text-overlay .statement-highlight {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}

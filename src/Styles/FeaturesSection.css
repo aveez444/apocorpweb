@@ -1,0 +1,169 @@
+/* Features Section */
+
+.features-section {
+  width: 100%;
+  /* background: #071a2e; */
+  background: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 30px 60px -30px rgba(0, 0, 0, 0.5);
+  padding-top: 80px;
+  /* Provides top spacing inside the background */
+  padding-bottom: 80px;
+}
+
+/* Indented hero banner (Top card) */
+.features-banner {
+  position: relative;
+  margin: 0 70px;
+  /* Space right and left */
+  overflow: hidden;
+  border-radius: 16px;
+  /* Matches the cards below */
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+.features-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.features-banner-overlay {
+  position: absolute;
+  inset: 0;
+  /* Dark gradient removed to keep image bright as original */
+}
+
+/* Rows container */
+.features-rows {
+  padding: 60px 70px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+/* Single alternating row */
+.features-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.features-row--img-right {
+  direction: rtl;
+  /* flips column order */
+}
+
+.features-row--img-right>* {
+  direction: ltr;
+  /* reset text direction inside children */
+}
+
+/* Image side */
+.features-row-image {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+.features-row-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text side */
+.features-row-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.features-row-title {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin: 0;
+  /* background: linear-gradient(90deg,
+      #4fa3ff 0%,
+      #a78bfa 55%,
+      #f472b6 100%); */
+  /* -webkit-background-clip: text; */
+  /* background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+  /* color: transparent; */
+  color: #071a2e;
+}
+
+.features-row-subtitle {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.2px;
+  /* background: linear-gradient(90deg, #4fa3ff 0%, #a78bfa 55%, #f472b6 100%); */
+  /* -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  color: #071a2e;
+}
+
+.features-row-desc {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 420px;
+  /* background: linear-gradient(90deg, #4fa3ff 0%, #a78bfa 55%, #f472b6 100%); */
+  /* -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  color: #071a2e;
+}
+
+@media (max-width: 1024px) {
+  .features-rows {
+    padding: 48px 40px 0;
+    gap: 48px;
+  }
+
+  .features-banner {
+    margin: 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .features-rows {
+    padding: 40px 20px 0;
+    gap: 48px;
+  }
+
+  .features-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .features-banner {
+    margin: 0 20px;
+  }
+
+  .features-row,
+  .features-row--img-right {
+    grid-template-columns: 1fr;
+    direction: ltr;
+    gap: 24px;
+  }
+
+  .features-row--img-right .features-row-image {
+    order: -1;
+    /* image always on top on mobile */
+  }
+
+  .features-row-title {
+    font-size: 1.4rem;
+  }
+}

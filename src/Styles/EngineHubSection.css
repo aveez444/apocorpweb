@@ -1,0 +1,186 @@
+/* Engine Hub Section */
+
+.engine-section {
+  width: 100%;
+  /* background: #ffffff; */
+  background: #0a1e33;
+  /* background: var(--primary-blue); */
+  padding: 0px 70px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 54, 104, 0.07);
+}
+
+.engine-shell {
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* The diagram container — square, relative */
+.engine-diagram {
+  position: relative;
+  width: 540px;
+  height: 540px;
+}
+
+/* Base pink/purple directional glow rotating on hover */
+.engine-directional-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at center, rgba(196, 62, 167, 0.7) 0%, transparent 60%);
+  filter: blur(12px);
+  z-index: 1;
+  /* Below lines and center */
+  pointer-events: none;
+  transform-origin: center center;
+  margin-top: -60px;
+  /* Center perfectly vertically */
+  margin-left: -60px;
+  /* Center perfectly horizontally */
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.15), opacity 0.3s ease;
+}
+
+/* SVG lines layer */
+.engine-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Center circle */
+.engine-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0b3c88 0%, #8c2f8f 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  box-shadow:
+    0 0 0 10px rgba(11, 60, 136, 0.08),
+    0 0 0 20px rgba(11, 60, 136, 0.04),
+    0 12px 32px rgba(11, 60, 136, 0.3),
+    0 0 45px rgba(217, 70, 239, 0.4);
+  /* Extra pink glow added */
+}
+
+.engine-center-brand {
+  font-family: "Alata", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.engine-center-label {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.5px;
+}
+
+/* Orbit node pills */
+.engine-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1.5px solid rgba(0, 54, 104, 0.18);
+  box-shadow: 0 6px 18px rgba(0, 54, 104, 0.1);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #0b3f73;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Subtle glow logic on hover */
+.engine-node.active,
+.engine-node:hover {
+  border-color: rgba(138, 79, 203, 0.4);
+  /* Reverted to subtle original */
+  box-shadow: 0 8px 22px rgba(91, 99, 219, 0.2);
+  /* Reverted to soft shadow underneath */
+  transform: translate(-50%, -50%) scale(1.06);
+  /* Layering a vibrant blue-to-pink gradient OVER solid white */
+  background: linear-gradient(90deg,
+      rgba(47, 127, 230, 0.12) 0%,
+      rgba(217, 70, 239, 0.14) 100%), #ffffff;
+  color: #0b3f73;
+}
+
+@media (max-width: 1024px) {
+  .engine-section {
+    padding: 60px 40px;
+  }
+
+  .engine-diagram {
+    width: 440px;
+    height: 440px;
+  }
+
+  .engine-center {
+    width: 90px;
+    height: 90px;
+  }
+
+  .engine-center-brand {
+    font-size: 13px;
+  }
+
+  .engine-node {
+    font-size: 12px;
+    padding: 7px 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .engine-section {
+    padding: 48px 20px;
+  }
+
+  .engine-diagram {
+    width: 340px;
+    height: 340px;
+  }
+
+  .engine-center {
+    width: 74px;
+    height: 74px;
+  }
+
+  .engine-center-brand {
+    font-size: 11px;
+  }
+
+  .engine-center-label {
+    font-size: 9px;
+  }
+
+  .engine-node {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+}

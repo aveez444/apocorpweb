@@ -1,0 +1,141 @@
+/* Blogs Page Layout Styling */
+
+.blogs-page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: #ffffff;
+  padding: 20px 20px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.blogs-heading {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+  background: linear-gradient(90deg,
+      #0b5fc1 0%,
+      #2f7fe6 28%,
+      #5a63db 55%,
+      #8a4fcb 78%,
+      #c43ea7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-align: center;
+  z-index: 2;
+}
+
+/* Decorative background elements */
+.bg-blob {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(138, 79, 203, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.blob-1 {
+  top: -100px;
+  left: -100px;
+}
+
+.blob-2 {
+  bottom: -100px;
+  right: -100px;
+}
+
+/* Blogs Coming Soon Styling */
+
+.blogs-coming-soon-container {
+  padding: 5px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.blogs-wip-card {
+  position: relative;
+  width: min(90%, 500px);
+  padding: 30px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(47, 127, 230, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 54, 104, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  z-index: 2;
+}
+
+/* Dots animation */
+.blogs-dots-container {
+  display: flex;
+  gap: 12px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.blogs-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5a63db;
+  animation: blogs-bounce 1.4s infinite ease-in-out both;
+}
+
+.blogs-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.blogs-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+/* Global animations */
+@keyframes blogs-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes blogs-pulse-out {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes blogs-bounce {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}

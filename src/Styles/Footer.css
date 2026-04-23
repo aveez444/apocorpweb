@@ -1,0 +1,150 @@
+/* Footer */
+
+.footer {
+  position: relative;
+  background: #071a2e;
+  color: rgba(255, 255, 255, 0.95);
+  margin-top: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.footer-top {
+  position: relative;
+  z-index: 1;
+  padding: 42px 70px 34px;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.footer-left {
+  max-width: 520px;
+}
+
+.footer-brand {
+  font-family: "Alata", sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  margin: 0 0 18px;
+  background: linear-gradient(90deg,
+      #d8ecff 0%,
+      #ffffff 45%,
+      #b7d7ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.footer-description {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 18px;
+}
+
+.footer-divider {
+  width: 100%;
+  max-width: 420px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.55);
+  margin: 0 0 18px;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-contact p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Nunito Sans", sans-serif;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 6px;
+}
+
+.footer-right a {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.95);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.footer-right a:hover {
+  color: #9ec6ff;
+  transform: translateX(4px);
+}
+
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 18px 20px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-family: "Alata", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 32px 20px 24px;
+  }
+
+  .footer-brand {
+    font-size: 1.75rem;
+  }
+
+  .footer-description {
+    font-size: 1rem;
+  }
+
+  .footer-right {
+    gap: 12px;
+  }
+
+  .footer-right a {
+    font-size: 1rem;
+  }
+
+  .footer-bottom {
+    padding: 16px 20px;
+  }
+
+  .footer-bottom p {
+    font-size: 0.88rem;
+  }
+}

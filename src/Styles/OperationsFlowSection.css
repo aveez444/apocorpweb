@@ -1,0 +1,666 @@
+/* Operations Flow Section */
+
+.operations-flow-section {
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  padding: 8px 40px 24px;
+  background: #ffffff;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+
+.operations-shell {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 12px;
+}
+
+.operations-heading {
+  margin: 0;
+  display: inline-block !important;
+  padding: 0 30px;
+  width: fit-content !important;
+  font-family: "Nunito Sans", sans-serif !important;
+  /* font-size: clamp(2.2rem, 3.3vw, 2rem); clamp(min, preferred, max) */
+  /* font-size: clamp(1.6rem, 3.3vw, 2rem);  */
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  background: linear-gradient(90deg,
+      #0b5fc1 0%,
+      #2f7fe6 28%,
+      #5a63db 55%,
+      #8a4fcb 78%,
+      #c43ea7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.operations-layout {
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.45fr 0.95fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.operations-diagram,
+.operations-preview-card {
+  min-height: 0;
+  height: 100%;
+  max-height: 100%;
+}
+
+.operations-diagram {
+  position: relative;
+  padding: 18px 24px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #ffffff;
+  transform: scale(0.98);
+  transform-origin: top center;
+}
+
+.operations-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 54, 104, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 54, 104, 0.06) 1px, transparent 1px);
+  background-size: 34px 34px;
+  opacity: 0.75;
+  z-index: 0;
+}
+
+/* .azure-box {
+  position: absolute;
+  top: 58px;
+  left: 24px;
+  z-index: 3;
+  min-width: 188px;
+  height: 50px;
+  padding: 0 18px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 54, 104, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 54, 104, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Nunito Sans", cursive;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0b3f73;
+} */
+
+.azure-box {
+  position: absolute;
+  top: 58px;
+  left: 24px;
+  z-index: 3;
+  width: 188px;
+  height: 50px;
+  padding: 0 14px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 54, 104, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 54, 104, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.azure-box-image {
+  max-width: 100%;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.apocorp-box {
+  position: absolute;
+  top: 239px;
+  left: 24px;
+  z-index: 3;
+  min-width: 200px;
+  height: 64px;
+  padding: 0 20px;
+  border-radius: 18px;
+  background: #0b3f73;
+  box-shadow: 0 14px 32px rgba(91, 99, 219, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.apocorp-box span {
+  font-family: "Alata", sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.apocorp-box::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: calc(330px - 24px - 100%);
+  /* Mathematically bridges to exact trunk boundary */
+  border-top: 3px dashed rgba(0, 54, 104, 0.68);
+  transform: translateY(-50%);
+}
+
+.apocorp-box::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 46px;
+  height: 5px;
+  background: linear-gradient(90deg,
+      rgba(47, 127, 230, 0) 0%,
+      rgba(47, 127, 230, 1) 45%,
+      rgba(196, 62, 167, 1) 80%,
+      rgba(196, 62, 167, 0) 100%);
+  border-radius: 999px;
+  transform: translateY(-50%);
+  animation: flowH 4.5s linear infinite;
+  z-index: 2;
+  opacity: 0;
+}
+
+.azure-link {
+  position: absolute;
+  top: 108px;
+  width: 18px;
+  height: 132px;
+  z-index: 2;
+}
+
+.azure-link-left {
+  left: 88px;
+}
+
+.azure-link-right {
+  left: 116px;
+}
+
+.azure-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+  border-left: 3px dashed rgba(0, 54, 104, 0.72);
+}
+
+.azure-head {
+  position: absolute;
+  left: 50%;
+  width: 11px;
+  height: 11px;
+  border-top: 3px solid #0b3f73;
+  border-right: 3px solid #0b3f73;
+  background: transparent;
+}
+
+.azure-head-up {
+  top: 3px;
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+.azure-head-down {
+  bottom: 3px;
+  transform: translateX(-50%) rotate(135deg);
+}
+
+.main-trunk {
+  position: absolute;
+  top: 107px;
+  /* Align perfectly with top node horizontal branch */
+  left: 330px;
+  width: 2px;
+  height: 328px;
+  /* Expand downwards to perfectly meet bottom node branch */
+  border-left: 3px dashed rgba(0, 54, 104, 0.68);
+  z-index: 1;
+}
+
+.main-trunk::after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  top: 164px;
+  /* Matches exact intersection split on new trunk height */
+  width: 6px;
+  height: 50px;
+  border-radius: 999px;
+  background: linear-gradient(180deg,
+      rgba(47, 127, 230, 0) 0%,
+      rgba(47, 127, 230, 1) 45%,
+      rgba(196, 62, 167, 1) 80%,
+      rgba(196, 62, 167, 0) 100%);
+  animation: flowDown 4.5s linear infinite;
+  opacity: 0;
+}
+
+.main-trunk::before {
+  content: "";
+  position: absolute;
+  left: -3px;
+  top: 114px;
+  /* Intersecting offset for upward movement */
+  width: 6px;
+  height: 50px;
+  border-radius: 999px;
+  background: linear-gradient(0deg,
+      rgba(47, 127, 230, 0) 0%,
+      rgba(47, 127, 230, 1) 45%,
+      rgba(196, 62, 167, 1) 80%,
+      rgba(196, 62, 167, 0) 100%);
+  animation: flowUp 4.5s linear infinite;
+  opacity: 0;
+}
+
+.module-list {
+  position: absolute;
+  top: 80px;
+  left: 384px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  z-index: 2;
+}
+
+.module-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.module-branch {
+  position: absolute;
+  left: -58px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 58px;
+  border-top: 3px dashed rgba(0, 54, 104, 0.68);
+}
+
+.module-label {
+  min-width: 220px;
+  height: 54px;
+  padding: 0 18px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 54, 104, 0.18);
+  box-shadow: 0 8px 18px rgba(0, 54, 104, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.28s ease;
+}
+
+.module-label-text {
+  display: inline-block;
+  width: fit-content;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.1;
+  background: linear-gradient(90deg,
+      #0b5fc1 0%,
+      #2f7fe6 28%,
+      #5a63db 55%,
+      #8a4fcb 78%,
+      #c43ea7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.module-node:hover .module-label,
+.module-node.active .module-label {
+  border-color: rgba(138, 79, 203, 0.4);
+  box-shadow: 0 10px 22px rgba(91, 99, 219, 0.18);
+  transform: translateY(-1px);
+}
+
+.module-node.active .module-label {
+  background: linear-gradient(90deg,
+      rgba(11, 95, 193, 0.06) 0%,
+      rgba(196, 62, 167, 0.08) 100%);
+}
+
+.signal-dot {
+  position: absolute;
+  left: -62px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2f7fe6 0%, #c43ea7 100%);
+  box-shadow: 0 0 0 6px rgba(47, 127, 230, 0.12);
+  transform: translateY(-50%);
+  animation: signalPulse 1.2s ease-in-out infinite;
+}
+
+.module-node.active .module-branch::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: -3px;
+  width: 54px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg,
+      rgba(47, 127, 230, 0) 0%,
+      rgba(47, 127, 230, 1) 45%,
+      rgba(196, 62, 167, 1) 80%,
+      rgba(196, 62, 167, 0) 100%);
+  animation: branchFlow 1s linear infinite;
+}
+
+.operations-preview-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f4f7fa;
+  /* background: #071a2e; */
+  height: calc(100% - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.operations-preview-card:not(.operations-preview-scroll)>img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Grid removed */
+
+.operations-preview-scroll {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+.operations-preview-scroll img {
+  width: 65%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+@keyframes signalPulse {
+  0% {
+    transform: translateY(-50%) scale(0.9);
+    box-shadow: 0 0 0 0 rgba(47, 127, 230, 0.28);
+  }
+
+  70% {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 0 0 10px rgba(47, 127, 230, 0);
+  }
+
+  100% {
+    transform: translateY(-50%) scale(0.9);
+    box-shadow: 0 0 0 0 rgba(47, 127, 230, 0);
+  }
+}
+
+
+.secure-safe-note {
+  position: absolute;
+  top: 30px;
+  left: 190px;
+  width: 140px;
+  height: 78px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.secure-safe-text {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0b3f73;
+  white-space: nowrap;
+}
+
+.secure-safe-curve {
+  position: absolute;
+  left: 6px;
+  top: 22px;
+  width: 96px;
+  height: 64px;
+  overflow: visible;
+}
+
+@keyframes flowH {
+  0% {
+    transform: translate(0, -50%);
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  40% {
+    transform: translate(46px, -50%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(46px, -50%);
+    opacity: 0;
+  }
+}
+
+@keyframes flowDown {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  38% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  80% {
+    transform: translateY(114px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(114px);
+    opacity: 0;
+  }
+}
+
+@keyframes flowUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  38% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  80% {
+    transform: translateY(-114px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(-114px);
+    opacity: 0;
+  }
+}
+
+@keyframes branchFlow {
+  0% {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .operations-flow-section {
+    height: auto;
+    min-height: auto;
+    padding: 56px 24px;
+    overflow: visible;
+  }
+
+  .operations-shell {
+    height: auto;
+    display: block;
+  }
+
+  .operations-heading {
+    margin-bottom: 28px;
+  }
+
+  .operations-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .operations-diagram {
+    min-height: 700px;
+  }
+
+  .operations-preview-card {
+    min-height: 420px;
+    height: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .operations-flow-section {
+    padding: 56px 20px;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .operations-heading {
+    font-size: 2rem;
+    margin-bottom: 28px;
+    letter-spacing: -1px;
+  }
+
+  .operations-diagram {
+    min-height: auto;
+    padding: 16px 22px;
+  }
+
+  .azure-box,
+  .apocorp-box,
+  .main-trunk {
+    position: static;
+  }
+
+  .azure-box,
+  .apocorp-box {
+    margin-bottom: 18px;
+  }
+
+  .apocorp-box::after,
+  .apocorp-box::before,
+  .main-trunk,
+  .module-branch,
+  .signal-dot {
+    display: none;
+  }
+
+  .module-list {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    /* gap: 16px; */
+    gap: 24px;
+  }
+
+  .module-label {
+    min-width: 100%;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .operations-preview-card {
+    height: 100%;
+    min-height: 320px;
+    /* height: 320px; */
+    margin-top: -2px;
+  }
+}

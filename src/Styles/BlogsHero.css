@@ -1,0 +1,32 @@
+/* Blogs Hero / Header Section */
+
+.blogs-hero {
+  width: 100%;
+  background: #071a2e;
+  padding: 48px 70px 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.blogs-hero-shell {
+  max-width: 1280px;
+  width: 100%;
+}
+
+.blogs-hero-title {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin: 0;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .blogs-hero {
+    padding: 40px 20px 32px;
+  }
+
+  .blogs-hero-title {
+    font-size: 2rem;
+  }
+}
