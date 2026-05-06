@@ -1,8 +1,19 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 /* Navbar */
 .navbar {
   width: 100%;
-  /* padding: 20px 70px; */
-  padding: 20px var(--page-gutter);
+  padding: clamp(1rem, 2vw, 1.25rem) var(--page-gutter);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,6 +24,12 @@
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(0, 54, 104, 0.08);
   box-shadow: 0 8px 24px rgba(0, 54, 104, 0.05);
+}
+
+.navbar-logo,
+.navbar-links,
+.navbar-actions {
+  min-width: 0;
 }
 
 .navbar-logo {
@@ -31,18 +48,20 @@
 
 .navbar-links {
   display: flex;
-  gap: 32px;
+  gap: clamp(16px, 2vw, 32px);
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .nav-link {
   color: var(--primary-blue) !important;
-  font-size: 15px;
+  font-size: clamp(14px, 0.9rem + 0.1vw, 15px);
   font-weight: 500;
   transition: color 0.3s ease, transform 0.3s ease;
   position: relative;
   display: inline-block;
-  padding: 6px 10px;
+  padding: clamp(4px, 0.6vw, 6px) clamp(8px, 0.8vw, 10px);
 }
 
 .nav-link-text {
@@ -51,7 +70,6 @@
   transition: all 0.3s ease;
 }
 
-/* Premium smooth underline sweep */
 .nav-link::after {
   content: "";
   position: absolute;
@@ -82,42 +100,31 @@
 
 .navbar-actions {
   display: flex;
-  gap: 12px;
+  gap: clamp(8px, 1vw, 12px);
+  justify-content: flex-end;
 }
 
 /* Buttons */
 
 .btn {
   padding: 10px 18px;
-  /* border-radius: 999px; */
   border-radius: 12px;
   border: 1px solid var(--primary-blue);
   cursor: pointer;
-  font-size: 14px;
+  font-size: clamp(13px, 0.9rem, 14px);
   transition: all 0.3s ease;
 }
 
-/* .btn-primary {
-  background-color: var(--primary-blue);
-  color: #ffffff;
-  border: 1px solid var(--primary-blue);
-} */
 
 .btn-primary {
   padding: 10px 18px;
   border-radius: 12px;
   border: none;
   position: relative;
-
-  /* background: #122C41; */
   background: rgb(1, 32, 60);
-  /* drop shadow: Y4, Blur15, #000 15% */
-  /* inner shadow: Y4, Blur4, #FFF 50%  ← this is the white top sheen */
   box-shadow:
     0 4px 15px rgba(0, 0, 0, 0.15),
     inset 0 2px 2px rgba(255, 255, 255, 0.50);
-
-  /* typography */
   font-family: "Nunito Sans", sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -143,12 +150,6 @@
   border-radius: 14px 14px 0 0;
   pointer-events: none;
 }
-
-/* .btn-primary:hover {
-  background-color: var(--secondary-blue);
-  border-color: var(--secondary-blue);
-  color: #ffffff;
-} */
 
 .btn-primary:hover {
   background: #103454;
@@ -198,12 +199,6 @@
     inset 0 4px 4px rgba(255, 255, 255, 0.40);
 }
 
-/* .btn-secondary,
-.btn-ghost {
-  background-color: transparent;
-  color: var(--primary-blue);
-  border: 1px solid rgba(0, 54, 104, 0.22);
-} */
 
 .btn-secondary,
 .btn-ghost {
@@ -228,10 +223,20 @@
   box-shadow: none;
 }
 
-/* .btn-secondary:hover,
-.btn-ghost:hover {
-  background: var(--bg-soft);
-  border-color: var(--primary-blue);
-  color: var(--secondary-blue);
-  box-shadow: var(--shadow-soft);
-} */
+@media (min-width: 1440px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+
+  .navbar-links {
+    gap: 20px;
+  }
+
+  .nav-link {
+    padding: 5px 8px;
+  }
+
+  .btn-primary {
+    padding: 9px 14px;
+  }
+}

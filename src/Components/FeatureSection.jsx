@@ -10,28 +10,24 @@ const features = [
     id: 1,
     title: "Product Master",
     img: feature1,
-    // subtitle: "Initial Confirmation",
     desc: "Centralize your entire product catalog in one place. Add, edit, and organize items with detailed attributesSKUs, descriptions, pricing tiers, units of measure, and tax categories. Keep inventory data accurate and accessible across all modules.",
   },
   {
     id: 2,
     title: "Quotation",
     img: feature2,
-    // subtitle: "Initial Confirmation",
     desc: "Generate professional quotations in minutes. Pull products directly from your catalog, apply custom pricing or discounts, and send polished proposals to clients. Track quotation status and convert accepted quotes to orders with a single click.",
   },
   {
     id: 3,
     title: "Order Details",
     img: feature3,
-    // subtitle: "Initial Confirmation",
     desc: "View and manage every aspect of an order from a single screen. Monitor line items, quantities, pricing, delivery schedules, and fulfillment status. Edit orders on the fly and maintain a complete audit trail of all changes.",
   },
   {
     id: 4,
     title: "Proforma Invoice",
     img: feature4,
-    // subtitle: "Initial Confirmation",
     desc: "Create proforma invoices for advance payments, customs declarations, or pre-shipment approvals. Auto-populate buyer and product details, specify payment terms, and export to PDF for immediate sharing with clients or authorities.",
   },
 ];
@@ -39,13 +35,11 @@ const features = [
 function FeaturesSection() {
   return (
     <section className="features-section">
-      {/* Full-width banner image at top */}
       <div className="features-banner">
         <img src={dashboard} alt="Feature banner" />
         <div className="features-banner-overlay"></div>
       </div>
 
-      {/* Alternating rows */}
       <div className="features-rows">
         {features.map((feature, index) => (
           <div

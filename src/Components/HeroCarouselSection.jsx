@@ -7,9 +7,16 @@ function HeroCarouselSection() {
   const [cards, setCards] = useState([...cardData, ...cardData]);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isLocked, setIsLocked] = useState(false);
 
   const handleCardClick = (clickedIdx) => {
-    if (isAnimating || clickedIdx === currentIdx) return;
+    if (isLocked || isAnimating || clickedIdx === currentIdx) return;
+
+    setIsLocked(true);
+
+    setTimeout(() => {
+      setIsLocked(false);
+    }, 1000);
 
     const distanceToMove = clickedIdx - currentIdx;
     if (distanceToMove <= 0) return;
@@ -26,6 +33,7 @@ function HeroCarouselSection() {
     if (clickedCard) clickedCard.classList.add("expanded");
 
     const cardWidth = 72 + 12;
+
     track.style.transform = `translateX(-${distanceToMove * cardWidth}px)`;
 
     setTimeout(() => {
@@ -56,7 +64,7 @@ function HeroCarouselSection() {
         <h1 className="carousel-title">One Platform. Every Function.</h1>
       </div>
 
-      <div className="carousel-container">
+      <div className={`carousel-container ${isLocked ? "is-locked" : ""}`}>
         <div className="carousel-track" ref={trackRef}>
           {renderedCards.map((card, idx) => (
             <AccordionCard

@@ -22,10 +22,8 @@ function StatementSection() {
   const containerRef = useRef(null);
 
   useGSAP(() => {
-    // Start all words invisible
     gsap.set(".gsap-word", { opacity: 0 });
 
-    // Stagger them to opaque based on scroll
     gsap.to(".gsap-word", {
       opacity: 1,
       stagger: 0.15,
@@ -43,7 +41,6 @@ function StatementSection() {
     <section className="statement-section" ref={containerRef}>
       <div className="statement-shell">
         <div className="statement-text-wrapper">
-          {/* Base Layer: Inactive/Grey Text ensures flawless wrapping footprint */}
           <p className="statement-text statement-text-base" aria-hidden="true">
             {content.map((group, groupIndex) => (
               <span key={`base-${groupIndex}`}>
@@ -55,7 +52,6 @@ function StatementSection() {
             ))}
           </p>
 
-          {/* Reveal Layer: Colored overlapping words */}
           <p className="statement-text statement-text-overlay">
             {content.map((group, groupIndex) => {
               const words = group.text.split(" ");

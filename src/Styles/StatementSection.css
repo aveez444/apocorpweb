@@ -2,8 +2,6 @@
 
 .statement-section {
   width: 100%;
-  /* background: #0a1e33; */
-  /* background: var(--primary-blue); */
   background: #ffffff;
   padding: 80px 70px;
   display: flex;
@@ -47,24 +45,6 @@
   font-weight: 800;
 }
 
-@media (max-width: 1024px) {
-  .statement-section {
-    padding: 60px 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  .statement-section {
-    padding: 48px 20px;
-  }
-
-  .statement-text {
-    font-size: 1.15rem;
-    line-height: 1.7;
-  }
-}
-
-/* GSAP Overlay Logic */
 .statement-text-wrapper {
   position: relative;
 }
@@ -74,8 +54,6 @@
   top: 0;
   left: 0;
   width: 100%;
-
-  /* Create one continuous beautiful gradient spanning the entire text block */
   background: linear-gradient(90deg,
       #4fa3ff 0%,
       #a78bfa 55%,
@@ -86,7 +64,6 @@
   color: transparent;
 }
 
-/* Reset colors on the base layout to behave entirely as a flat grey skeleton */
 .statement-text-base .statement-accent,
 .statement-text-base .statement-white,
 .statement-text-base .statement-highlight {
@@ -95,10 +72,8 @@
   background-clip: unset;
   -webkit-text-fill-color: unset;
   color: rgba(0, 0, 0, 0.15);
-  /* Light grey for white backgrounds */
 }
 
-/* Strip original nested colors from the overlay so the parent's giant gradient shines perfectly through! */
 .statement-text-overlay .statement-accent,
 .statement-text-overlay .statement-white,
 .statement-text-overlay .statement-highlight {
@@ -107,4 +82,10 @@
   background-clip: unset !important;
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
+}
+
+@media (max-width: 1024px) {
+  .statement-section {
+    padding: 60px 40px;
+  }
 }

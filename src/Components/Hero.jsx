@@ -1,14 +1,13 @@
-// import heroImage from "../assets/hero-2.png";
 import dashboard from "../assets/HomePageHero/dashboard.png";
-import background from "../assets/HomePageHero/background.png";
+// import background from "../assets/HomePageHero/background.png";
+import background from "../assets/HomePageHero/background.webp";
 import "../Styles/HeroSection.css";
 
 function Hero() {
     return (
         <section className="hero">
-            {/* Swirly background image restricted to the right side */}
-            <div 
-                className="hero-bg-swirl" 
+            <div
+                className="hero-bg-swirl"
                 style={{ backgroundImage: `url(${background})` }}
             ></div>
 
@@ -17,13 +16,12 @@ function Hero() {
                 <h2>Built for agile and robust environments</h2>
 
                 <div className="hero-buttons">
-                    <button 
+                    <button
                         className="btn btn-primary"
                         onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                         Book a Demo 📅
                     </button>
-                    {/* <button className="btn btn-ghost">Contact Us</button> */}
                 </div>
             </div>
 

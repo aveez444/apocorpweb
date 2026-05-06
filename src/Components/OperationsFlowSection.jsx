@@ -1,8 +1,6 @@
 import { useState } from "react";
 import "../Styles/OperationsFlowSection.css";
 
-import img1 from "../assets/carousel-1.png";
-import img2 from "../assets/carousel-2.png";
 import img3 from "../assets/carousel-3.png";
 import img4 from "../assets/carousel-4.png";
 import img5 from "../assets/carousel-5.png";
@@ -65,12 +63,10 @@ function OperationsFlowSection() {
               <span className="secure-safe-text">Secure and Safe!</span>
               <svg
                 className="secure-safe-curve"
-                // viewBox="0 10 100 80"
                 viewBox="0 0 120 80"
                 aria-hidden="true"
               >
                 <path
-                  // d="M 0 50 Q 90 24 40 8"
                   d="M 0 50 Q 70 24 45 8"
                   fill="none"
                   stroke="#0b3f73"
@@ -79,8 +75,6 @@ function OperationsFlowSection() {
                   strokeLinecap="round"
                 />
                 <path
-                  // fill="none"
-                  // d="M 44 15 L 35 -10 L 55 8"
                   d="M 40 13 L 40 -10 L 58 8"
                   fill="#0b3f73"
                   stroke="#0b3f73"
@@ -129,9 +123,8 @@ function OperationsFlowSection() {
           </div>
 
           <div
-            className={`operations-preview-card ${
-              Array.isArray(activeModule.image) ? "operations-preview-scroll" : ""
-            }`}
+            className={`operations-preview-card ${Array.isArray(activeModule.image) ? "operations-preview-scroll" : ""
+              }`}
           >
             {Array.isArray(activeModule.image) ? (
               activeModule.image.map((img, idx) => (

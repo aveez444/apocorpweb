@@ -12,7 +12,7 @@ const nodes = [
   { id: "quality-control", label: "Quality Control", angle: 135 },
 ];
 
-const RADIUS = 200; // distance from center
+const RADIUS = 200;
 
 function EngineHubSection() {
   const [hoveredNode, setHoveredNode] = useState(null);
@@ -26,7 +26,6 @@ function EngineHubSection() {
       <div className="engine-shell">
         <div className="engine-diagram">
 
-          {/* Directional Hover Glow Blob */}
           <div
             className="engine-directional-glow"
             style={{
@@ -35,7 +34,7 @@ function EngineHubSection() {
             }}
           ></div>
 
-          {/* SVG lines from center to each node */}
+
           <svg className="engine-svg" viewBox="0 0 540 540">
             {nodes.map((node) => {
               const rad = (node.angle * Math.PI) / 180;
@@ -46,7 +45,7 @@ function EngineHubSection() {
                   key={node.id}
                   x1="270" y1="270"
                   x2={cx} y2={cy}
-                  stroke="rgba(255, 255, 255, 0.35)" /* Updated to white for contrast on dark bg */
+                  stroke="rgba(255, 255, 255, 0.35)"
                   strokeWidth="1.5"
                   strokeDasharray="5 4"
                 />
@@ -54,13 +53,13 @@ function EngineHubSection() {
             })}
           </svg>
 
-          {/* Center node */}
+
           <div className="engine-center">
             <span className="engine-center-brand">ApoCorp</span>
             <span className="engine-center-label">Engine</span>
           </div>
 
-          {/* Orbit nodes */}
+
           {nodes.map((node) => {
             const rad = (node.angle * Math.PI) / 180;
             const x = 50 + (RADIUS / 270) * 50 * Math.cos(rad);

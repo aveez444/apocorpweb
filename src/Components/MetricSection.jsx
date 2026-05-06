@@ -10,7 +10,6 @@ const stats = [
 const MetricSection = () => {
   return (
     <section className="impact-section">
-      {/* Decorative wave lines */}
       <div className="wave-left">
         <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           {[...Array(10)].map((_, i) => (
@@ -44,12 +43,10 @@ const MetricSection = () => {
         </svg>
       </div>
 
-      {/* Heading */}
       <h2 className="impact-heading">
         Not just stats, its the impact we have created
       </h2>
 
-      {/* Cards */}
       <div className="impact-cards">
         {stats.map((stat, index) => (
           <div className="impact-card" key={index}>

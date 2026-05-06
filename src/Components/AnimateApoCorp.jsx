@@ -20,10 +20,9 @@ function AnimateApoCorp() {
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: "top top",
-                end: "+=350%", // Snappier scroll
+                end: "+=350%",
                 scrub: 1,
                 pin: true,
-                // anticipatePin: 1
             }
         });
 
@@ -78,7 +77,7 @@ function AnimateApoCorp() {
             opacity: 1,
             scale: 1,
             // y: 0,
-            y: -16,
+            y: -30,
             duration: 2.5,
             ease: "power2.out"
         });
@@ -151,14 +150,11 @@ function AnimateApoCorp() {
                         {/* <!-- Card 1 --> */}
                         <div className="apo-glass-card apo-glass-card--compact" id="card-1">
                             <span className="apo-card-number">01</span>
-                            {/* <h3>Real-time Floor Visibility</h3>
-                            <p>Every work order and batch is visible in your reports instantly. No delays, no manual syncing for full transparency across the shop floor.</p> */}
                             <div className="apo-card-copy">
                                 <h3 className="apo-card-title apo-card-title--long">
                                     What is happening on your floor is visible in your reports right now.</h3>
-                                {/* <br /> <br /> */}
                                 <p>When a work order progresses, inventory updates. When a batch clears QC, dispatch is notified. When a shipment leaves the gate, finance records it.</p>
-                                {/* <br /> */}
+
                                 <p>There is no batch processing, no overnight sync, no morning catch-up. The system reflects reality as it moves.</p>
                             </div>
                             <div className="apo-card-media">
@@ -169,13 +165,9 @@ function AnimateApoCorp() {
                     {/* <!-- Card 2 --> */}
                     <div className="apo-glass-card" id="card-2">
                         <span className="apo-card-number">02</span>
-                        {/* <h3>Seamless Integration</h3>
-                            <p>When a work order progresses, inventory updates automatically. When QC clears a batch, dispatch is notified immediately. Finance records it all.</p> */}
                         <div className="apo-card-copy">
                             <h3>Modular by Design</h3>
-                            {/* <br /><br /> */}
                             <p>You do not need to implement everything on day one. Begin with the modules your operation needs most urgently. </p>
-                            {/* <br /> */}
                             <p>Every module you add connects automatically to the ones already running. The same data, the same logic, the same system. Growth does not require re-implementation.</p>
                         </div>
                         <div className="apo-card-media">
@@ -185,13 +177,10 @@ function AnimateApoCorp() {
                     {/* <!-- Card 3 --> */}
                     <div className="apo-glass-card" id="card-3">
                         <span className="apo-card-number">03</span>
-                        {/* <h3>Enterprise-Grade Security</h3>
-                            <p>Your operational data and cost structures are sensitive. We protect them with top-tier encryption and zero-trust architecture built for industry.</p> */}
+
                         <div className="apo-card-copy">
                             <h3>Enterprise-Grade always on, security without compromise.</h3>
-                            {/* <br /><br /> */}
                             <p>Your operational data, supplier prices, customer orders, cost structures is commercially sensitive. Where is it stored, who can access it, and what happens to it?</p>
-                            {/* <br /> */}
                             <p>Your data is yours. Always. We host it securely, back it up continuously, and you can export everything at any time.</p>
                         </div>
 

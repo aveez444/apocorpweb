@@ -1,22 +1,5 @@
 /* Contact Section */
 
-/* .contact-section {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 32px 48px;
-  background: linear-gradient(
-    90deg,
-    var(--primary-blue) 0%,
-    var(--secondary-blue) 50%,
-    var(--primary-blue) 100%
-  );
-  overflow: hidden;
-} */
-
-
 .contact-section {
   position: relative;
   width: 100%;
@@ -100,14 +83,11 @@
 
 .contact-heading {
   margin: 0 0 12px;
-  /* Tighter layout to save vertical footprint */
   display: inline-block;
   width: fit-content;
   padding-right: 15px;
-  /* Fixes text clipping at the edge */
   font-family: "Nunito Sans", sans-serif;
   font-size: 32px;
-  /*2rem * 16 = 32px*/
   line-height: 1.15;
   font-weight: 700;
   letter-spacing: -1.5px;
@@ -261,55 +241,6 @@
     font-size: 1.35rem;
   }
 }
-
-@media (max-width: 768px) {
-  .contact-section {
-    padding: 48px 20px;
-  }
-
-  .contact-pattern {
-    width: 110px;
-  }
-
-  .contact-heading {
-    font-size: 1.8rem;
-    margin-bottom: 18px;
-  }
-
-  .contact-form-card {
-    padding: 14px;
-  }
-
-  .contact-form {
-    gap: 12px;
-  }
-
-  .contact-form input {
-    height: 48px;
-  }
-
-  .contact-action {
-    justify-content: stretch;
-  }
-
-  .contact-action button {
-    width: 100%;
-    height: 48px;
-  }
-
-  .contact-info h3 {
-    font-size: 1.8rem;
-  }
-
-  .contact-step h4 {
-    font-size: 1.2rem;
-  }
-
-  .contact-step p {
-    font-size: 1rem;
-  }
-}
-
 
 .contact-status {
   margin-top: 10px;

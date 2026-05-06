@@ -16,11 +16,11 @@ function ContactSection() {
 
     try {
       await emailjs.sendForm(
-        "service_ponnhba", // replace with your actual service id
-        "template_1izemuc", // replace with your template id
+        "service_ponnhba",
+        "template_1izemuc",
         formRef.current,
         {
-          publicKey: "AkPNL39hS93a4-BaG", // replace with your public key
+          publicKey: "AkPNL39hS93a4-BaG",
         }
       );
 

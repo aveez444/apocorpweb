@@ -118,21 +118,3 @@
     max-width: 14ch;
   }
 }
-
-@media (max-width: 768px) {
-  .about-us-section {
-    padding: 72px 20px;
-  }
-
-  .about-us-content {
-    gap: 16px;
-  }
-
-  .about-us-title {
-    font-size: clamp(2rem, 7vw, 2.8rem);
-  }
-
-  .about-card {
-    padding: 20px;
-  }
-}

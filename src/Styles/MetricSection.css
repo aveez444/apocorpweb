@@ -1,12 +1,9 @@
 /* ===== Metric Stats Section ===== */
-/* Uses theme variables defined in HomePages.css — no extra font imports needed,
-   Inter is already loaded globally via body {}                                  */
 
 .impact-section {
   position: relative;
   width: 100%;
   background: #071a2e;
-  /* solid midnight blue from theme */
   padding: 52px 40px 56px;
   box-sizing: border-box;
   display: flex;
@@ -28,7 +25,6 @@
   pointer-events: none;
 }
 
-/* ===== Decorative Wave Lines ===== */
 .wave-left,
 .wave-right {
   position: absolute;
@@ -53,7 +49,6 @@
   height: 100%;
 }
 
-/* ===== Heading ===== */
 .impact-heading {
   font-family: "Nunito Sans", sans-serif;
   font-size: 1.3rem;
@@ -64,7 +59,6 @@
   position: relative;
   z-index: 1;
 
-  /* apo-gradient colors pulled across the heading text — vivid on solid blue */
   background: linear-gradient(90deg,
       #0b5fc1 0%,
       #2f7fe6 18%,
@@ -91,7 +85,6 @@
 /* ===== Individual Card ===== */
 .impact-card {
   background: var(--bg-white);
-  /* #ffffff from your theme            */
   border-radius: 16px;
   padding: 28px 44px 24px;
   flex: 1 1 200px;
@@ -101,8 +94,6 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
-
-  /* Glow uses your --primary-blue so it blends with the brand palette */
   box-shadow:
     0 0 0 1.5px rgba(255, 255, 255, 0.25),
     0 0 8px 3px rgba(99, 149, 255, 0.70),
@@ -120,7 +111,6 @@
     0 0 30px 12px rgba(99, 149, 255, 0.60),
     0 0 65px 22px rgba(139, 92, 246, 0.45),
     0 12px 40px rgba(0, 54, 104, 0.5);
-  /* subtle purple from apo-gradient  */
 }
 
 /* ===== Card Label ===== */
@@ -129,7 +119,6 @@
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--primary-blue);
-  /* rgb(0, 54, 104) from your theme     */
   margin: 0;
   text-align: center;
   letter-spacing: 0.01em;
@@ -143,39 +132,8 @@
   margin: 0;
   text-align: center;
   line-height: 1.1;
-
-  /* Mirrors your --apo-gradient direction so card values echo the section bg  */
   background: var(--apo-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 640px) {
-  .impact-section {
-    padding: 40px 20px 44px;
-  }
-
-  .impact-heading {
-    font-size: 1rem;
-  }
-
-  .impact-cards {
-    gap: 16px;
-  }
-
-  .impact-card {
-    padding: 22px 28px 20px;
-    max-width: 100%;
-  }
-
-  .card-value {
-    font-size: 2rem;
-  }
-
-  .wave-left,
-  .wave-right {
-    width: 140px;
-  }
 }

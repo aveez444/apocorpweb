@@ -15,8 +15,6 @@
   --text-muted: #4f6b88;
   --shadow-soft: 0 10px 30px rgba(0, 54, 104, 0.08);
 
-  /* Animated Section Vibrant Theme */
-  /* --apo-gradient: linear-gradient(135deg, #2b1257 0%, #6b1d9c 35%, #9d1c7e 70%, #d81b60 100%); */
   --apo-gradient: linear-gradient(135deg,
       #0b3c88 0%,
       #2b5fb8 20%,
@@ -24,7 +22,7 @@
       #8c2f8f 72%,
       #c2387a 100%);
   --apo-logo-gradient: linear-gradient(135deg, #003668 0%, #134f8a 100%);
-  --page-gutter: 70px;
+  --page-gutter: clamp(1.25rem, 5vw, 4.375rem);
 }
 
 
@@ -32,7 +30,7 @@ body {
   background-color: var(--bg-main);
   color: var(--text-main);
   font-family: Inter, sans-serif;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 a {
@@ -45,14 +43,3 @@ a {
   background: radial-gradient(circle at top, rgba(0, 54, 104, 0.10) 0%, rgba(210, 228, 248, 0.22) 18%, rgba(255, 255, 255, 0.95) 42%, #f7faff 100%);
   padding: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
