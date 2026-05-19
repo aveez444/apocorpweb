@@ -574,3 +574,193 @@
     height: 420px;
   }
 }
+
+@media (max-width: 768px) {
+  .operations-flow-section {
+    height: auto;
+    min-height: auto;
+    padding: 40px 16px;
+    overflow: visible;
+    display: block;
+  }
+
+  .operations-shell {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .operations-heading {
+    padding: 0;
+    width: 100% !important;
+    font-size: 2rem;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .operations-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    height: auto;
+  }
+
+  .operations-diagram {
+    position: relative;
+    min-height: auto;
+    height: auto;
+    padding: 20px 0 0;
+    border-radius: 0;
+    background: transparent;
+    transform: none;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .operations-grid-bg,
+  .azure-link,
+  .main-trunk,
+  .module-branch,
+  .signal-dot,
+  .apocorp-box::after,
+  .apocorp-box::before,
+  .module-node.active .module-branch::after {
+    display: none;
+  }
+
+  .apocorp-box {
+    position: relative;
+    top: auto;
+    left: auto;
+    min-width: 0;
+    width: calc(100% - 8px);
+    max-width: 320px;
+    height: 58px;
+    margin: 0 auto 16px;
+    border-radius: 18px;
+  }
+
+  .apocorp-box span {
+    font-size: 1.75rem;
+  }
+
+  .module-list {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+  }
+
+  .module-node {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .module-label {
+    width: 100%;
+    min-width: 0;
+    max-width: 320px;
+    height: 56px;
+    padding: 0 16px;
+    border-radius: 16px;
+  }
+
+  .module-label-text {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .operations-preview-card {
+    /* min-height: auto;
+    height: auto; */
+    min-height: 520px;
+    height: 520px;
+    border-radius: 20px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .operations-preview-card:not(.operations-preview-scroll)>img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
+  }
+
+  .operations-preview-scroll {
+    gap: 12px;
+    padding: 0;
+  }
+
+  .operations-preview-scroll img {
+    width: 100%;
+    border-radius: 14px;
+  }
+
+  .azure-box {
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: 2;
+    width: 180px;
+    height: 48px;
+    margin: 0 auto 10px;
+    padding: 0 14px;
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 54, 104, 0.14);
+    box-shadow: 0 8px 18px rgba(0, 54, 104, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .azure-box-image {
+    max-width: 100%;
+    max-height: 28px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .secure-safe-note {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    height: auto;
+    margin: 0 auto 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  .secure-safe-text {
+    position: relative;
+    top: auto;
+    left: auto;
+    font-size: 0.8rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .secure-safe-curve {
+    display: none;
+  }
+}

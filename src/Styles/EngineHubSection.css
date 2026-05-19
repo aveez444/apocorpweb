@@ -37,6 +37,8 @@
   transform-origin: center center;
   margin-top: -60px;
   margin-left: -60px;
+  opacity: 0;
+  transform: rotate(0deg) translateX(40px);
   transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.15), opacity 0.3s ease;
 }
 
@@ -138,5 +140,78 @@
   .engine-node {
     font-size: 12px;
     padding: 7px 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .engine-section {
+    padding: clamp(36px, 8vw, 52px) clamp(16px, 5vw, 24px) clamp(24px, 6vw, 32px);
+  }
+
+  .engine-shell {
+    max-width: 100%;
+  }
+
+  .engine-diagram {
+    width: clamp(280px, 92vw, 360px);
+    height: clamp(280px, 92vw, 360px);
+  }
+
+  .engine-directional-glow {
+    width: clamp(88px, 24vw, 108px);
+    height: clamp(88px, 24vw, 108px);
+    margin-top: calc(clamp(88px, 24vw, 108px) / -2);
+    margin-left: calc(clamp(88px, 24vw, 108px) / -2);
+    filter: blur(clamp(8px, 2.8vw, 12px));
+  }
+
+  .engine-center {
+    width: clamp(72px, 22vw, 88px);
+    height: clamp(72px, 22vw, 88px);
+    gap: clamp(1px, 0.6vw, 2px);
+    box-shadow:
+      0 0 0 clamp(6px, 2vw, 10px) rgba(11, 60, 136, 0.08),
+      0 0 0 clamp(12px, 4vw, 20px) rgba(11, 60, 136, 0.04),
+      0 clamp(8px, 3vw, 12px) clamp(20px, 7vw, 32px) rgba(11, 60, 136, 0.3),
+      0 0 clamp(28px, 10vw, 45px) rgba(217, 70, 239, 0.4);
+  }
+
+  .engine-center-brand {
+    font-size: clamp(11px, 3.2vw, 13px);
+  }
+
+  .engine-center-label {
+    font-size: clamp(9px, 2.4vw, 10px);
+    letter-spacing: clamp(0.2px, 0.12vw, 0.5px);
+  }
+
+  .engine-node {
+    font-size: clamp(10px, 2.8vw, 11.5px);
+    padding: clamp(6px, 1.9vw, 8px) clamp(10px, 3vw, 14px);
+    box-shadow: 0 clamp(4px, 1.8vw, 6px) clamp(12px, 4vw, 18px) rgba(0, 54, 104, 0.1);
+  }
+}
+
+@keyframes engineGlowOrbitMobile {
+  0% {
+    transform: rotate(0deg) translateX(clamp(26px, 8vw, 34px));
+  }
+
+  100% {
+    transform: rotate(360deg) translateX(clamp(26px, 8vw, 34px));
+  }
+}
+
+@media (max-width: 768px),
+(hover: none) and (pointer: coarse) {
+  .engine-directional-glow {
+    opacity: 1 !important;
+    transform: rotate(0deg) translateX(clamp(26px, 8vw, 34px));
+    animation: engineGlowOrbitMobile 7s linear infinite;
+  }
+
+  .engine-node:hover,
+  .engine-node.active {
+    transform: translate(-50%, -50%) scale(1);
   }
 }

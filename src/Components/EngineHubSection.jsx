@@ -12,7 +12,8 @@ const nodes = [
   { id: "quality-control", label: "Quality Control", angle: 135 },
 ];
 
-const RADIUS = 200;
+const DESKTOP_RADIUS = 200;
+const MOBILE_RADIUS = 168;
 
 function EngineHubSection() {
   const [hoveredNode, setHoveredNode] = useState(null);
@@ -20,6 +21,9 @@ function EngineHubSection() {
   const activeNode = nodes.find(n => n.id === hoveredNode);
   const glowAngle = activeNode ? activeNode.angle : 0;
   const glowOpacity = activeNode ? 1 : 0;
+
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+  const activeRadius = isMobile ? MOBILE_RADIUS : DESKTOP_RADIUS;
 
   return (
     <section className="engine-section">
@@ -29,8 +33,10 @@ function EngineHubSection() {
           <div
             className="engine-directional-glow"
             style={{
-              opacity: glowOpacity,
-              transform: `rotate(${-glowAngle}deg) translateX(40px)`
+              opacity: hoveredNode ? glowOpacity : undefined,
+              transform: hoveredNode
+                ? `rotate(${-glowAngle}deg) translateX(40px)`
+                : undefined
             }}
           ></div>
 
@@ -38,8 +44,8 @@ function EngineHubSection() {
           <svg className="engine-svg" viewBox="0 0 540 540">
             {nodes.map((node) => {
               const rad = (node.angle * Math.PI) / 180;
-              const cx = 270 + RADIUS * Math.cos(rad);
-              const cy = 270 - RADIUS * Math.sin(rad);
+              const cx = 270 + activeRadius * Math.cos(rad);
+              const cy = 270 - activeRadius * Math.sin(rad);
               return (
                 <line
                   key={node.id}
@@ -62,8 +68,8 @@ function EngineHubSection() {
 
           {nodes.map((node) => {
             const rad = (node.angle * Math.PI) / 180;
-            const x = 50 + (RADIUS / 270) * 50 * Math.cos(rad);
-            const y = 50 - (RADIUS / 270) * 50 * Math.sin(rad);
+            const x = 50 + (activeRadius / 270) * 50 * Math.cos(rad);
+            const y = 50 - (activeRadius / 270) * 50 * Math.sin(rad);
             const isHovered = hoveredNode === node.id;
             return (
               <div

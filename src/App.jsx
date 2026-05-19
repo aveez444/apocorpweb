@@ -21,7 +21,6 @@ function App() {
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/about-us" element={<AboutUsPage />} />
       </Routes>
-      {/* <HomePages /> */}
       <ContactSection />
       <Footer />
     </BrowserRouter>

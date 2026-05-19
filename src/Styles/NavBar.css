@@ -240,3 +240,145 @@ body {
     padding: 9px 14px;
   }
 }
+
+.hamburger-btn,
+.mobile-overlay,
+.mobile-sidebar {
+  display: none;
+}
+
+.hamburger-btn {
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  z-index: 1101;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger-btn span {
+  width: 24px;
+  height: 2px;
+  background: var(--primary-blue);
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-btn.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 20, 40, 0.38);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1098;
+}
+
+.mobile-overlay.show {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: min(82vw, 320px);
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: -10px 0 30px rgba(0, 54, 104, 0.15);
+  padding: 20px 18px 24px;
+  transition: right 0.3s ease;
+  z-index: 1099;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mobile-sidebar.open {
+  right: 0;
+}
+
+.mobile-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-brand {
+  font-family: "Alata", sans-serif;
+  font-size: 1.4rem;
+  color: var(--primary-blue);
+}
+
+.mobile-close-btn {
+  border: none;
+  background: transparent;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--primary-blue);
+  cursor: pointer;
+}
+
+.mobile-sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-nav-link {
+  color: var(--primary-blue) !important;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 10px;
+  border-radius: 12px;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  background: var(--bg-soft);
+  color: var(--secondary-blue) !important;
+}
+
+.mobile-trial-btn {
+  width: 100%;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.9rem 1rem;
+  }
+
+  .navbar-links,
+  .navbar-actions {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: inline-flex;
+  }
+
+  .navbar-logo {
+    font-size: 1.4rem;
+  }
+}

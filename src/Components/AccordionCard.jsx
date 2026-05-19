@@ -1,7 +1,8 @@
-function AccordionCard({ data, idx, isExpanded, onClick }) {
+function AccordionCard({ data, idx, isExpanded, isMobileActive, onClick }) {
   return (
     <div
-      className={`accordion-card ${isExpanded ? "expanded" : ""}`}
+      // className={`accordion-card ${isExpanded ? "expanded" : ""}`}
+      className={`accordion-card ${isExpanded ? "expanded" : ""} ${isMobileActive ? "mobile-active" : ""}`}
       data-index={idx}
       onClick={onClick}
     >

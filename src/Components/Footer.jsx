@@ -14,7 +14,7 @@ function Footer() {
           <h3 className="footer-brand">ApoCorp</h3>
 
           <p className="footer-description">
-            Our mission is to serve our clients with best erp solutions
+            Our mission is to serve our clients with best ERP solutions
           </p>
 
           <div className="footer-divider"></div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../Styles/OperationsFlowSection.css";
 
 import img3 from "../assets/carousel-3.png";
@@ -43,6 +43,20 @@ const modules = [
 
 function OperationsFlowSection() {
   const [activeModule, setActiveModule] = useState(modules[0]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveModule((current) => {
+        const currentIndex = modules.findIndex(
+          (module) => module.id === current.id
+        );
+        const nextIndex = (currentIndex + 1) % modules.length;
+        return modules[nextIndex];
+      });
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="operations-flow-section">

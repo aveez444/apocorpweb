@@ -220,3 +220,127 @@
         left: 0;
     }
 }
+
+/* @media (max-width: 768px) {
+    .products-hero-inner {
+        width: min(calc(100% - 32px), 1280px);
+        padding: 56px 0 34px;
+        gap: 26px;
+    }
+
+    .products-hero-content {
+        gap: 14px;
+    }
+
+    .products-hero-title {
+        font-size: 3rem;
+        line-height: 0.98;
+        letter-spacing: -1.6px;
+    }
+
+    .products-hero-subtitle {
+        font-size: 15px;
+        line-height: 1.7;
+        max-width: 100%;
+    }
+
+    .products-hero-btn {
+        margin-top: 2px;
+    }
+
+    .products-hero-visual {
+        min-height: 265px;
+        margin-top: 8px;
+    }
+
+    .ph-card--2 {
+        width: min(88%, 540px);
+        top: 18px;
+    }
+
+    .ph-card--3 {
+        width: min(52%, 230px);
+        top: -30px;
+        right: 9px;
+        left: auto;
+    }
+
+    .ph-card--1 {
+        width: min(58%, 269px);
+        bottom: 0;
+        left: 0;
+    }
+
+    .products-hero-slashes {
+        left: 8px;
+        top: -8px;
+        width: 64px;
+        gap: 14px;
+    }
+
+    .products-hero-slashes span {
+        width: 8px;
+    }
+} */
+
+@media (max-width: 768px) {
+    .products-hero-inner {
+        width: min(calc(100% - clamp(24px, 6vw, 32px)), 1280px);
+        padding: clamp(48px, 10vw, 56px) 0 clamp(28px, 7vw, 34px);
+        gap: clamp(20px, 5vw, 26px);
+    }
+
+    .products-hero-content {
+        gap: clamp(12px, 3.5vw, 14px);
+    }
+
+    .products-hero-title {
+        font-size: clamp(2.6rem, 8vw, 3rem);
+        line-height: 0.98;
+        letter-spacing: clamp(-1.2px, -0.35vw, -1.6px);
+    }
+
+    .products-hero-subtitle {
+        font-size: clamp(14px, 3.8vw, 15px);
+        line-height: 1.7;
+        max-width: 100%;
+    }
+
+    .products-hero-btn {
+        margin-top: clamp(0px, 0.8vw, 2px);
+    }
+
+    .products-hero-visual {
+        min-height: clamp(235px, 62vw, 265px);
+        margin-top: clamp(4px, 2vw, 8px);
+    }
+
+    .ph-card--2 {
+        width: min(88%, 540px);
+        top: clamp(12px, 3.5vw, 18px);
+    }
+
+    .ph-card--3 {
+        width: clamp(150px, 52vw, 230px);
+        top: clamp(-30px, -6vw, -14px);
+        right: clamp(-2px, 2vw, 9px);
+        left: auto;
+    }
+
+    .ph-card--1 {
+        width: clamp(165px, 58vw, 269px);
+        bottom: clamp(-2px, 0vw, 0px);
+        left: 0;
+    }
+
+    .products-hero-slashes {
+        left: clamp(4px, 2vw, 8px);
+        top: clamp(-8px, -1vw, -4px);
+        width: clamp(48px, 16vw, 64px);
+        gap: clamp(10px, 3vw, 14px);
+    }
+
+    .products-hero-slashes span {
+        width: clamp(6px, 1.8vw, 8px);
+    }
+}

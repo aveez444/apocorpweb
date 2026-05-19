@@ -55,6 +55,16 @@ function HeroCarouselSection() {
     }, 700);
   };
 
+  const handleNextMobile = () => {
+    if (window.innerWidth > 768) return;
+    setCurrentIdx((prev) => (prev + 1) % cards.length);
+  };
+
+  const handlePrevMobile = () => {
+    if (window.innerWidth > 768) return;
+    setCurrentIdx((prev) => (prev - 1 + cards.length) % cards.length);
+  };
+
   const renderedCards = useMemo(() => cards, [cards]);
 
   return (
@@ -65,6 +75,16 @@ function HeroCarouselSection() {
       </div>
 
       <div className={`carousel-container ${isLocked ? "is-locked" : ""}`}>
+        <button
+          className="carousel-nav carousel-nav--prev"
+          onClick={handlePrevMobile}
+          aria-label="Previous card"
+          type="button"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14.5 5.5L8 12l6.5 6.5" />
+          </svg>
+        </button>
         <div className="carousel-track" ref={trackRef}>
           {renderedCards.map((card, idx) => (
             <AccordionCard
@@ -72,10 +92,21 @@ function HeroCarouselSection() {
               data={card}
               idx={idx}
               isExpanded={idx === currentIdx}
+              isMobileActive={idx === currentIdx}
               onClick={() => handleCardClick(idx)}
             />
           ))}
         </div>
+        <button
+          className="carousel-nav carousel-nav--next"
+          onClick={handleNextMobile}
+          aria-label="Next card"
+          type="button"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9.5 5.5L16 12l-6.5 6.5" />
+          </svg>
+        </button>
       </div>
     </section>
   );
