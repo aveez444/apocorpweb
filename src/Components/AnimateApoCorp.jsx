@@ -13,133 +13,294 @@ function AnimateApoCorp() {
     const sectionRef = useRef(null);
 
     useGSAP(() => {
-        const ctx = gsap.context(() => {
-            gsap.set(".apo-glass-card", { visibility: "hidden" });
+  const mm = gsap.matchMedia();
 
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top top",
-                    end: "+=350%",
-                    scrub: 1,
-                    pin: true,
-                }
-            });
+  ScrollTrigger.saveStyles(
+    "#zoom-logo, #apo-header, #apo-content, .apo-glass-card, #card-1, #card-2, #card-3"
+  );
 
-            // 1. Initial Logo Zoom & Entrance
-            tl.fromTo("#zoom-logo",
-                { scale: 8, opacity: 0 },
-                { scale: 1, opacity: 1, duration: 2, ease: "power2.out" }
-            );
+  const onLoadRefresh = () => ScrollTrigger.refresh();
+  window.addEventListener("load", onLoadRefresh);
 
-            // 2. Logo moves up and transitions to the Header
-            tl.to("#zoom-logo", {
-                y: -100,
-                scale: 0.5,
-                opacity: 0,
-                duration: 1.5,
-                ease: "power2.inOut"
-            }, "+=0.5");
+  mm.add("(min-width: 769px)", () => {
+    ScrollTrigger.normalizeScroll(true);
 
-            // Background transition to #003668 and text to white 
-            // Triggered precisely when the logo starts its move-up/fade-out
-            tl.to("#bg-overlay", {
-                opacity: 1,
-                duration: 1.5,
-                ease: "power2.inOut"
-            }, "<");
+    gsap.set(".apo-glass-card", { visibility: "hidden" });
 
-            tl.to(["#apo-header h2", "#apo-header p", ".apo-glass-card h3", ".apo-glass-card p"], {
-                color: "#ffffff",
-                duration: 1.5,
-                ease: "power2.inOut"
-            }, "<");
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "+=350%",
+        scrub: 1,
+        pin: true,
+        invalidateOnRefresh: true,
+      }
+    });
 
-            tl.to("#apo-header", {
-                opacity: 1,
-                y: 0,
-                duration: 1.2,
-                ease: "power3.out"
-            }, "<0.6");
+    tl.fromTo(
+      "#zoom-logo",
+      { scale: 8, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 2, ease: "power2.out" }
+    );
 
-            // 3. Main content area reveal
-            tl.to("#apo-content", {
-                opacity: 1,
-                duration: 1
-            }, "-=0.4");
+    tl.to("#zoom-logo", {
+      y: -100,
+      scale: 0.5,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power2.inOut"
+    }, "+=0.5");
+
+    tl.to("#bg-overlay", {
+      opacity: 1,
+      duration: 1.5,
+      ease: "power2.inOut"
+    }, "<");
+
+    tl.to(
+      ["#apo-header h2", "#apo-header p", ".apo-glass-card h3", ".apo-glass-card p"],
+      {
+        color: "#ffffff",
+        duration: 1.5,
+        ease: "power2.inOut"
+      },
+      "<"
+    );
+
+    tl.to("#apo-header", {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      ease: "power3.out"
+    }, "<0.6");
+
+    tl.to("#apo-content", {
+      opacity: 1,
+      duration: 1
+    }, "-=0.4");
+
+    tl.set("#card-1", { visibility: "visible", opacity: 0, scale: 0.8, y: 300 });
+    tl.to("#card-1", {
+      opacity: 1,
+      scale: 1,
+      y: -30,
+      duration: 2.5,
+      ease: "power2.out"
+    });
+
+    tl.to({}, { duration: 1.5 });
+
+    tl.set("#card-2", { visibility: "visible", opacity: 0, scale: 0.8, y: 500, zIndex: 70 });
+    tl.set("#card-1", { zIndex: 80 });
+
+    tl.to("#card-1", {
+      y: 600,
+      opacity: 0,
+      duration: 3,
+      ease: "power2.inOut"
+    });
+
+    tl.to("#card-2", {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      duration: 3,
+      ease: "power2.out"
+    }, "-=2.8");
+
+    tl.to({}, { duration: 1.5 });
+
+    tl.set("#card-3", { visibility: "visible", opacity: 0, scale: 0.8, y: 500, zIndex: 60 });
+    tl.set("#card-2", { zIndex: 70 });
+
+    tl.to("#card-2", {
+      y: 600,
+      opacity: 0,
+      duration: 3,
+      ease: "power2.inOut"
+    });
+
+    tl.to("#card-3", {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      duration: 3,
+      ease: "power2.out"
+    }, "-=2.8");
+
+    tl.to({}, { duration: 2 });
+  });
+
+  mm.add("(max-width: 768px)", () => {
+  gsap.set("#bg-overlay", { opacity: 1 });
+  gsap.set("#zoom-logo", { opacity: 0 });
+  gsap.set("#apo-header", { opacity: 1, y: 0 });
+  gsap.set("#apo-content", { opacity: 1 });
+  gsap.set(".apo-glass-card", { visibility: "visible", opacity: 1 });
+
+  gsap.utils.toArray(".apo-glass-card").forEach((card, index) => {
+    gsap.from(card, {
+      y: 36,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      delay: index * 0.05,
+      scrollTrigger: {
+        trigger: card,
+        start: "top 88%",
+        toggleActions: "play none none none",
+        invalidateOnRefresh: true,
+      }
+    });
+  });
+});
+
+  requestAnimationFrame(() => {
+    ScrollTrigger.refresh();
+  });
+
+  return () => {
+    window.removeEventListener("load", onLoadRefresh);
+    mm.revert();
+  };
+}, { scope: sectionRef });
+
+    // useGSAP(() => {
+
+    //     ScrollTrigger.normalizeScroll(true);
+
+    //     gsap.set(".apo-glass-card", { visibility: "hidden" });
+
+    //     const tl = gsap.timeline({
+    //         scrollTrigger: {
+    //             trigger: sectionRef.current,
+    //             start: "top top",
+    //             end: "+=350%",
+    //             scrub: 1,
+    //             pin: true,
+    //             invalidateOnRefresh: true,
+    //         }
+    //     });
+
+    //     // 1. Initial Logo Zoom & Entrance
+    //     tl.fromTo("#zoom-logo",
+    //         { scale: 8, opacity: 0 },
+    //         { scale: 1, opacity: 1, duration: 2, ease: "power2.out" }
+    //     );
+
+    //     // 2. Logo moves up and transitions to the Header
+    //     tl.to("#zoom-logo", {
+    //         y: -100,
+    //         scale: 0.5,
+    //         opacity: 0,
+    //         duration: 1.5,
+    //         ease: "power2.inOut"
+    //     }, "+=0.5");
+
+    //     // Background transition to #003668 and text to white 
+    //     // Triggered precisely when the logo starts its move-up/fade-out
+    //     tl.to("#bg-overlay", {
+    //         opacity: 1,
+    //         duration: 1.5,
+    //         ease: "power2.inOut"
+    //     }, "<");
+
+    //     tl.to(["#apo-header h2", "#apo-header p", ".apo-glass-card h3", ".apo-glass-card p"], {
+    //         color: "#ffffff",
+    //         duration: 1.5,
+    //         ease: "power2.inOut"
+    //     }, "<");
+
+    //     tl.to("#apo-header", {
+    //         opacity: 1,
+    //         y: 0,
+    //         duration: 1.2,
+    //         ease: "power3.out"
+    //     }, "<0.6");
+
+    //     // 3. Main content area reveal
+    //     tl.to("#apo-content", {
+    //         opacity: 1,
+    //         duration: 1
+    //     }, "-=0.4");
 
 
-            // 4. Card Sequence: Next card rises from bottom behind, current slides down in front
+    //     // 4. Card Sequence: Next card rises from bottom behind, current slides down in front
 
-            // --- Card 1 Entrance ---
-            tl.set("#card-1", { visibility: "visible", opacity: 0, scale: 0.8, y: 300 });
-            tl.to("#card-1", {
-                opacity: 1,
-                scale: 1,
-                // y: 0,
-                y: -30,
-                duration: 2.5,
-                ease: "power2.out"
-            });
+    //     // --- Card 1 Entrance ---
+    //     tl.set("#card-1", { visibility: "visible", opacity: 0, scale: 0.8, y: 300 });
+    //     tl.to("#card-1", {
+    //         opacity: 1,
+    //         scale: 1,
+    //         // y: 0,
+    //         y: -30,
+    //         duration: 2.5,
+    //         ease: "power2.out"
+    //     });
 
-            // Hold Card 1
-            tl.to({}, { duration: 1.5 });
+    //     // Hold Card 1
+    //     tl.to({}, { duration: 1.5 });
 
-            // --- Transition: Card 1 Exit (Front/Down) / Card 2 Entrance (Behind/Up) ---
-            // Prepare Card 2 off-screen bottom, lower z-index
-            tl.set("#card-2", { visibility: "visible", opacity: 0, scale: 0.8, y: 500, zIndex: 70 });
-            tl.set("#card-1", { zIndex: 80 }); // Ensure it stays in front
+    //     // --- Transition: Card 1 Exit (Front/Down) / Card 2 Entrance (Behind/Up) ---
+    //     // Prepare Card 2 off-screen bottom, lower z-index
+    //     tl.set("#card-2", { visibility: "visible", opacity: 0, scale: 0.8, y: 500, zIndex: 70 });
+    //     tl.set("#card-1", { zIndex: 80 }); // Ensure it stays in front
 
-            // Card 1 slides down and fades out
-            tl.to("#card-1", {
-                y: 600,
-                opacity: 0,
-                duration: 3,
-                ease: "power2.inOut"
-            });
+    //     // Card 1 slides down and fades out
+    //     tl.to("#card-1", {
+    //         y: 600,
+    //         opacity: 0,
+    //         duration: 3,
+    //         ease: "power2.inOut"
+    //     });
 
-            // Card 2 rises from bottom, scales up, and fades in
-            tl.to("#card-2", {
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                duration: 3,
-                ease: "power2.out"
-            }, "-=2.8"); // Overlap the movements
+    //     // Card 2 rises from bottom, scales up, and fades in
+    //     tl.to("#card-2", {
+    //         opacity: 1,
+    //         scale: 1,
+    //         y: 0,
+    //         duration: 3,
+    //         ease: "power2.out"
+    //     }, "-=2.8"); // Overlap the movements
 
-            // Hold Card 2
-            tl.to({}, { duration: 1.5 });
+    //     // Hold Card 2
+    //     tl.to({}, { duration: 1.5 });
 
-            // --- Transition: Card 2 Exit (Front/Down) / Card 3 Entrance (Behind/Up) ---
-            tl.set("#card-3", { visibility: "visible", opacity: 0, scale: 0.8, y: 500, zIndex: 60 });
-            tl.set("#card-2", { zIndex: 70 });
+    //     // --- Transition: Card 2 Exit (Front/Down) / Card 3 Entrance (Behind/Up) ---
+    //     tl.set("#card-3", { visibility: "visible", opacity: 0, scale: 0.8, y: 500, zIndex: 60 });
+    //     tl.set("#card-2", { zIndex: 70 });
 
-            tl.to("#card-2", {
-                y: 600,
-                opacity: 0,
-                duration: 3,
-                ease: "power2.inOut"
-            });
+    //     tl.to("#card-2", {
+    //         y: 600,
+    //         opacity: 0,
+    //         duration: 3,
+    //         ease: "power2.inOut"
+    //     });
 
-            tl.to("#card-3", {
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                duration: 3,
-                ease: "power2.out"
-            }, "-=2.8");
+    //     tl.to("#card-3", {
+    //         opacity: 1,
+    //         scale: 1,
+    //         y: 0,
+    //         duration: 3,
+    //         ease: "power2.out"
+    //     }, "-=2.8");
 
-            // Final hold
-            tl.to({}, { duration: 2 });
+    //     // Final hold
+    //     tl.to({}, { duration: 2 });
 
-        }, sectionRef);
+    //     const onLoadRefresh = () => ScrollTrigger.refresh();
 
-        requestAnimationFrame(() => {
-            ScrollTrigger.refresh();
-        });
+    //     window.addEventListener("load", onLoadRefresh);
 
-        return () => ctx.revert();
-    }, { scope: sectionRef });
+    //     requestAnimationFrame(() => {
+    //         ScrollTrigger.refresh();
+    //     });
+
+    //     return () => {
+    //         window.removeEventListener("load", onLoadRefresh);
+    //     };
+    // }, { scope: sectionRef });
 
     return (
         <section className="apo-scroll-section" ref={sectionRef}>
