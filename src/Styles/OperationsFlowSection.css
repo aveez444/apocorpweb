@@ -763,4 +763,26 @@
   .secure-safe-curve {
     display: none;
   }
+
+  /* .module-node,
+  .module-node *,
+  .module-label {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .module-node {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    outline: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  .module-node:focus,
+  .module-node:active,
+  .module-node:focus-visible {
+    outline: none;
+    box-shadow: none;
+  } */
 }
